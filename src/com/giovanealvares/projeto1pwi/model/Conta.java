@@ -13,25 +13,47 @@ public class Conta implements Produto {
 
 	@Override
 	public String getTipo() {
-		String tipo = "Conta";
-		return tipo;
+		return "Conta";
 	}
 	
 	public Conta(int numero) {
 		this.numero = numero;
 	}
 	
-	public boolean sacar(double valor) { return false;}
+	public boolean sacar(double valor) { 
+		if(this.saldo>=valor) {
+			this.saldo = this.saldo - valor;
+			return true;
+		}else {
+			return false;
+		}
+		}
 	
-	public boolean depositar(double valor) {return false;}
+	public boolean depositar(double valor) {
+		if(situacao) {
+			this.saldo = this.saldo + valor;
+			return true;
+		}else {
+			return false;
+		}
+		}
 	
-	public void desativar() {}
+	public void desativar() {
+		this.situacao = false;
+	}
 	
-	public void ativar() {}
+	public void ativar() {
+		this.situacao = true;
+	}
 	
-	public boolean estaAtivada() {return false;}
+	public boolean estaAtivada() {
+		return this.situacao;
+		}
 	
-	public double getSaldo() {return 0;}
+	public double getSaldo() {
+		return this.saldo;
+		}
+	
 	
 	
 

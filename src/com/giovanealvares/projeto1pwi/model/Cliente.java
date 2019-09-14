@@ -16,13 +16,24 @@ public abstract class Cliente {
 		this.telefone = telefone;
 	}
 	
-	public void addCCorrente(int numero) {}
+	public void addCCorrente(int numero) {
+		ContaCorrente contaCorrente = new ContaCorrente(numero);
+		this.produtos.add(contaCorrente);
+	}
 	
-	public void addCPoupanca(int numero) {}
+	public void addCPoupanca(int numero) {
+		ContaPoupanca contaPoupanca = new ContaPoupanca(numero);
+		this.produtos.add(contaPoupanca);
+	}
 	
-	public void addSeguto(int numero, double valor) {}
+	public void addSeguro(int numero, double valor) {
+		Seguro seguro = new Seguro(numero, valor);
+		this.produtos.add(seguro);
+	}
 	
-	public List<Produto> getProdutos(){return null;}
+	public List<Produto> getProdutos(){
+		return this.produtos;
+	}
 
 	public String getNome() {
 		return nome;
@@ -50,8 +61,5 @@ public abstract class Cliente {
 
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
-	}
-	
-	
-	 
+	} 
 }

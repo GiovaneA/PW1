@@ -8,14 +8,13 @@ public class Seguro implements Produto {
 	
 	@Override
 	public double valorImposto() {
-		// TODO Auto-generated method stub
-		return 0;
+		double imposto = 50 + 0.03*this.valor;
+		return imposto;
 	}
 
 	@Override
 	public String getTipo() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Seguro";
 	}
 
 	public Seguro(int numero, double valor) {
