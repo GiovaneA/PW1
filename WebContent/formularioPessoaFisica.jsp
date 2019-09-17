@@ -1,13 +1,15 @@
+<%@page import="com.giovanealvares.projeto1pwi.model.Cliente"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Formulario de Pessoa Fisica</title>
+<title>Formulario de cadastro</title>
 </head>
 <body>
-	<h3>Formulario de Pessoa Fisica</h3>
+	<h3>Formulario de cadastro</h3>
 	<form action="sistema?logica=CadastrarPessoaFisica" method="post">
 		Nome: <br>
 		<input type="text" name="nome" > <br><br>
@@ -23,7 +25,7 @@
 		<input type="text" name="nomeMae"> <br><br>
 		
 		</select> <br><br>
-		<input type="submit" value="Cadastrar Pessoa Fisica">
+		<input type="submit" value="Cadastrar">
 	</form>
 </body>
 </html>

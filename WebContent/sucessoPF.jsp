@@ -7,7 +7,7 @@
 <title>Parabéns Parça</title>
 </head>
 <body>
-	Cadastro de Pessoa Fisica realizada com sucesso. <br><br>
+	Cadastro realizada com sucesso. <br><br>
 	<a href="PaginaInicial.jsp">Voltar</a>
 </body>
 </html>

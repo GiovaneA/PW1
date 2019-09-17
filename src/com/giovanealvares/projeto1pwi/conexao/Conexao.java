@@ -11,11 +11,8 @@ public class Conexao {
 
 	public Connection getConexao() {
 		try {
-//			Pode ser assim (forma mais antiga, mas funcional)
-//			Class.forName("com.mysql.jdbc.Driver"); 
-			
-//			Ou assim (forma mais atual)
-			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			Class.forName("com.mysql.jdbc.Driver"); 
 			return DriverManager.getConnection(DSN, USUARIO, SENHA);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
