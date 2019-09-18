@@ -1,24 +1,57 @@
 create database BancoProjeto;
 
-CREATE TABLE bancoWeb (
-  `idCliente` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `endereco` VARCHAR(100) NULL DEFAULT NULL,
-  `telefone` BIGINT(20) NULL DEFAULT NULL,
-  `pessoaF` TINYINT(4) NULL DEFAULT NULL,
-  `pessoaJ` TINYINT(4) NULL DEFAULT NULL,
-  `cpf` VARCHAR(45) NULL DEFAULT NULL,
-  `cnpj` VARCHAR(45) NULL DEFAULT NULL,
-  `nomeMae` VARCHAR(45) NULL DEFAULT NULL,
-  `nomePai` VARCHAR(45) NULL DEFAULT NULL,
-  `nomeFantasia` VARCHAR(45) NULL DEFAULT NULL,
-  `contaCC` TINYINT(4) NULL DEFAULT NULL,
-  `contaP` TINYINT(4) NULL DEFAULT NULL,
-  `numeroConta` VARCHAR(45) NULL DEFAULT NULL,
-  `saldo` DOUBLE NULL DEFAULT NULL,
-  `situacao` TINYINT(4) NOT NULL,
-  `seguro` TINYINT(4) NULL DEFAULT NULL,
-  `numeroSeg` VARCHAR(45) NULL DEFAULT NULL,
-  `valorSeg` DOUBLE NULL DEFAULT NULL,
-  `situacaoSeg` TINYINT(4) NOT NULL,
+CREATE TABLE Cliente (
+  `idCliente` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `endereco` VARCHAR(100) NOT NULL,
+  `telefone` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idCliente`));
+
+CREATE TABLE PessoaFisica (
+  `idCliente` INT NOT NULL,
+  `cpf` VARCHAR(15) NOT NULL,
+  `nomePai` VARCHAR(45) NOT NULL,
+  `nomeMae` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idCliente`),
+  CONSTRAINT `idCliente`
+    FOREIGN KEY (`idCliente`)
+    REFERENCES `Cliente` (`idCliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+CREATE TABLE PessoaJuridica (
+  `idCliente` INT NOT NULL,
+  `cnpj` VARCHAR(45) NOT NULL,
+  `nomeFantasia` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idCliente`),
+  CONSTRAINT `idCliente`
+    FOREIGN KEY (`idCliente`)
+    REFERENCES `Cliente` (`idCliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+CREATE TABLE TipoServico (
+  `idTipoServico` INT NOT NULL,
+  `nomeServico` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idTipoServico`));
+
+CREATE TABLE Servico (
+  `idServico` INT NOT NULL,
+  `idCliente` INT NOT NULL,
+  `numero` INT NOT NULL,
+  `saldo` DOUBLE NOT NULL,
+  `situacao` TINYINT NOT NULL,
+  `idTipoServico` INT NOT NULL,
+  PRIMARY KEY (`idServico`),
+  INDEX `idCliente_idx` (`idCliente` ASC),
+  INDEX `idTipoServico_idx` (`idTipoServico` ASC),
+  CONSTRAINT `idCliente`
+    FOREIGN KEY (`idCliente`)
+    REFERENCES `Cliente` (`idCliente`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `idTipoServico`
+    FOREIGN KEY (`idTipoServico`)
+    REFERENCES `TipoServico` (`idTipoServico`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
