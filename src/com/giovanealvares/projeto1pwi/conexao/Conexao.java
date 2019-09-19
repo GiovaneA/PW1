@@ -7,7 +7,7 @@ public class Conexao {
 	
 	private static final String DSN = "jdbc:mysql://localhost/BancoProjeto";
 	private static final String USUARIO = "root"; 
-	private static final String SENHA = ""; //falta senha
+	private static final String SENHA = ""; 
 
 	public Connection getConexao() {
 		try {

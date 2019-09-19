@@ -15,6 +15,6 @@ public class ListarClientes implements Logica {
 		List<Cliente> lista = new ClienteDAO().listarTudo();
 		
 		req.setAttribute("lista", lista);
-		return "listaClientes.jsp";// criar para listar todos os clientes
+		return "listaClientes.jsp";
 	}
 }
