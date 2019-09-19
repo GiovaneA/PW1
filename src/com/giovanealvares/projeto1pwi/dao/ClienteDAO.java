@@ -36,6 +36,7 @@ public class ClienteDAO {
 			stmt.close();
 		} catch (Exception e) {
 			throw new RuntimeException(e);
+			
 		}
 	} 
 	

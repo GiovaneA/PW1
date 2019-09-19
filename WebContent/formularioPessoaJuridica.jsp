@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h3>Formulario de cadastro de pessoa juridica</h3>
-	<form action="sistema?logica=CadastrarPessoaJuridica" method="post">
+	<form action="sistema?logica=CadastrarClienteJ" method="post">
 		Nome: <br>
 		<input type="text" name="nome" > <br><br>
 		Endereço: <br>
