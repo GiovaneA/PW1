@@ -5,8 +5,8 @@ import java.sql.DriverManager;
 
 public class Conexao {
 	
-	private static final String DSN = "jdbc:mysql://localhost/..."; // faltao nome do banco
-	private static final String USUARIO = ""; //falta usuario
+	private static final String DSN = "jdbc:mysql://localhost/BancoProjeto";
+	private static final String USUARIO = "root"; 
 	private static final String SENHA = ""; //falta senha
 
 	public Connection getConexao() {
