@@ -24,7 +24,7 @@
 		Nome da Mãe: <br>
 		<input type="text" name="nomeMae"> <br><br>
 		
-		</select> <br><br>
+		<br><br>
 		<input type="submit" value="Cadastrar">
 	</form>
 </body>
