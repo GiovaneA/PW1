@@ -31,7 +31,7 @@ public abstract class Cliente {
 		this.produtos.add(seguro);
 	}
 	
-	public List<Produto> getProdutos(){
+	public List<Servico> getServico(){
 		return this.produtos;
 	}
 

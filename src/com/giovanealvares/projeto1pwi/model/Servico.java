@@ -6,3 +6,4 @@ public interface Produto {
 	public String getTipo();
 	
 }
+
