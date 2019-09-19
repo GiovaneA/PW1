@@ -11,7 +11,7 @@ import com.giovanealvares.projeto1pwi.dao.ClienteDAO;
 import com.giovanealvares.projeto1pwi.model.PessoaFisica;
 import com.giovanealvares.projeto1pwi.model.PessoaJuridica;
 
-public class CadastrarCliente implements Logica {
+public class CadastrarClienteF implements Logica {
 	
 
 	@Override
@@ -24,6 +24,7 @@ public class CadastrarCliente implements Logica {
 		String nomeMae = req.getParameter("nomeMae");
 		
 		PessoaFisica p1 = new PessoaFisica (nome, endereco, telefone, cpf);
+		p1.setNomePai(nomePai);
 		new ClienteDAO().inserir(Cliente);
 		
 		return "sucessoPF.jsp";
