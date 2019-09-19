@@ -7,6 +7,8 @@ import java.util.List;
 
 import com.giovanealvares.projeto1pwi.conexao.Conexao;
 import com.giovanealvares.projeto1pwi.model.Cliente;
+import com.giovanealvares.projeto1pwi.model.PessoaFisica;
+import com.giovanealvares.projeto1pwi.model.PessoaJuridica;
 import com.mysql.jdbc.PreparedStatement;
 
 
@@ -20,13 +22,32 @@ public class ClienteDAO {
 		this.conexao = new Conexao().getConexao();
 	}
 
-	public void inserir(Cliente cliente) {
-		String sql = "INSERT INT cliente (nome, endereco, telefone) values (?,?,?)";
+	public void inserirPF(PessoaFisica cliente) {
+		String sql = "INSERT INTO PessoaFisica(nome, endereco, telefone, cpf, nomePai, nomeMae) values(?,?,?,?,?,?)";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
 			stmt.setString(1, cliente.getNome());
 			stmt.setString(2, cliente.getEndereco());
 			stmt.setString(3, cliente.getTelefone());
+			stmt.setString(4, cliente.getCpf());
+			stmt.setString(5, cliente.getNomePai());
+			stmt.setString(6, cliente.getNomeMae());
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	} 
+	
+	public void inserirPJ(PessoaJuridica cliente) {
+		String sql = "INSERT INTO PessoaJuridica (nome, endereco, telefone, cnpj, nomeFantasia) values (?,?,?,?,?)";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setString(1, cliente.getNome());
+			stmt.setString(2, cliente.getEndereco());
+			stmt.setString(3, cliente.getTelefone());
+			stmt.setString(4, cliente.getCnpj());
+			stmt.setString(5, cliente.getNomeFantasia());
 			stmt.execute();
 			stmt.close();
 		} catch (Exception e) {

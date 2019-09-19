@@ -17,15 +17,17 @@ public class CadastrarClienteF implements Logica {
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nome = req.getParameter("nome");
 		String endereco = req.getParameter("endereco");
-		String telefone = Integer.parseInt(req.getParameter("telefone"));
-		String cpf = Integer.parseInt(req.getParameter("cpf"));
+		String telefone = req.getParameter("telefone");
+		String cpf = req.getParameter("cpf");
 		String nomePai = req.getParameter("nomePai");
 		String nomeMae = req.getParameter("nomeMae");
 		
 		PessoaFisica p1 = new PessoaFisica (nome, endereco, telefone, cpf);
+		p1.setNomeMae(nomeMae);
 		p1.setNomePai(nomePai);
-		new ClienteDAO().inserir(Cliente);
+		new ClienteDAO().inserirPF(p1);
 		
 		return "sucessoPF.jsp";
 	}
 }
+

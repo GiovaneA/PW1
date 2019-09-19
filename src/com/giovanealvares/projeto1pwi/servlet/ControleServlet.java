@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.giovanealvares.projeto1pwi.logica.Logica;
 
-@WebServlet("/Sistema")
+@WebServlet("/sistema")
 public class ControleServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -13,8 +13,8 @@ public class ExcluirCliente implements Logica {
 	
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String nome = nome;
-		new AlunoDao().excluirAluno(idAluno);
+		
+		
 		
 		return "sistema?logica=ListarAluno";
 			}

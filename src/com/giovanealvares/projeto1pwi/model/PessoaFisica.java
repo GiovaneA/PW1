@@ -15,7 +15,37 @@ public class PessoaFisica extends Cliente {
 		this.setTelefone(telefone);
 		
 	}
+
+
+	public String getCpf() {
+		return cpf;
+	}
+
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+
+	public String getNomeMae() {
+		return nomeMae;
+	}
+
+
+	public void setNomeMae(String nomeMae) {
+		this.nomeMae = nomeMae;
+	}
+
+
+	public String getNomePai() {
+		return nomePai;
+	}
+
+
+	public void setNomePai(String nomePai) {
+		this.nomePai = nomePai;
+	}
 	
-	
+	 
 	
 }

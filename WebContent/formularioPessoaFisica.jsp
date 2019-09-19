@@ -9,8 +9,8 @@
 <title>Cadastro de Pessoa Fisica</title>
 </head>
 <body>
-	<h3>Formulario de cadastro de pessoaa fisica</h3>
-	<form action="sistema?logica=CadastrarPessoaFisica" method="post">
+	<h3>Formulario de cadastro de pessoa fisica</h3>
+	<form action="sistema?logica=CadastrarClienteF" method="post">
 		Nome: <br>
 		<input type="text" name="nome" > <br><br>
 		Endereço: <br>
