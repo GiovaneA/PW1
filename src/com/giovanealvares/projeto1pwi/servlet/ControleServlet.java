@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.giovanealvares.projeto1pwi.logica.Logica;
+import com.giovanealvares.projeto1pwi.logica.*;
 
 @WebServlet("/sistema")
 public class ControleServlet extends HttpServlet {

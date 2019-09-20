@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.giovanealvares.projeto1pwi.dao.ClienteDAO;
-import com.giovanealvares.projeto1pwi.model.PessoaFisica;
 import com.giovanealvares.projeto1pwi.model.PessoaJuridica;
 
 public class CadastrarClienteJ implements Logica {
