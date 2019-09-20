@@ -10,11 +10,9 @@
 	<h3>Login Pessoa Fisica</h3>
 	<form action="sistema?logica=LogarPessoaFisica" method="post">
 		Nome da Mae: <br>
-		<input type="text" name="nome" > <br><br>
+		<input type="text" name="nomeMae" > <br><br>
 		CPF: <br>
 		<input type="text" name="cpf"> <br><br>
-
-		 <br><br>
 		<input type="submit" value="Logar">
 	</form>
 </body>

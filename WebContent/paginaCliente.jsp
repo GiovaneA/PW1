@@ -1,3 +1,4 @@
+<%@page import="com.giovanealvares.projeto1pwi.model.PessoaFisica"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -8,7 +9,8 @@
 </head>
 <body>
 <h1>Pagina do Cliente</h1>
-<h3><% // recuperar o nome do cliente ou da empresa do banco de dados %> Nome C</h3>
+<%PessoaFisica pf = (PessoaFisica) request.getAttribute("clienteLogado"); %>
+<h3>Bem-vindo <%=pf.getNome() %> </h3>
 <h4>Servicos Contratados</h4>
 <select name="servicos">
 		<%

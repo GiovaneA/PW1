@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mysql.jdbc.PreparedStatement;
+import com.giovanealvares.projeto1pwi.conexao.Conexao;
+import com.giovanealvares.projeto1pwi.model.Cliente;;
 
 public class ProdutoDAO {
 	

@@ -81,4 +81,21 @@ public class ClienteDAO {
 			throw new RuntimeException (e);
 		}
 	}
+	
+	public PessoaFisica logar(String nomeMae, String cpf) {
+		String sql = "SELECT * FROM pessoafisica pf WHERE pf.nomeMae = ? AND pf.cpf = ?";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setString(1, nomeMae);
+			stmt.setString(2, cpf);
+			ResultSet rs = stmt.executeQuery();
+			PessoaFisica pf = null;
+			pf = new PessoaFisica(rs.getString("nome"), rs.getString("endereco"), rs.getString("telefone") , rs.getString("cpf") );
+			pf.setNomeMae(rs.getString("nomeMae"));
+			pf.setNomePai(rs.getString("nomePai"));
+			return pf;
+		}catch(Exception e) {
+			throw new RuntimeException (e);
+				}
+	}
 }
