@@ -13,7 +13,7 @@ public class LogarPessoaFisica implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String nomeMae = req.getParameter("nome");
+		String nomeMae = req.getParameter("nomeMae");
 		String cpf = req.getParameter("cpf");
 		ClienteDAO clienteDAO = new ClienteDAO();
 		PessoaFisica pf = clienteDAO.logar(nomeMae, cpf);

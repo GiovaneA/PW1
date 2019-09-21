@@ -9,7 +9,8 @@
 </head>
 <body>
 <h1>Pagina do Cliente</h1>
-<%PessoaFisica pf = (PessoaFisica) request.getAttribute("clienteLogado"); %>
+<%PessoaFisica pf = (PessoaFisica) request.getAttribute("clienteLogado");
+ request.setAttribute("clienteLogado", pf);%>
 <h3>Bem-vindo <%=pf.getNome() %> </h3>
 <h4>Servicos Contratados</h4>
 <select name="servicos">

@@ -5,6 +5,7 @@ public class PessoaFisica extends Cliente {
 	private String cpf;
 	private String nomeMae;
 	private String nomePai;
+	private int id;
 	
 	
 	public PessoaFisica(String nome, String endereco, String telefone, String cpf) {
@@ -14,6 +15,16 @@ public class PessoaFisica extends Cliente {
 		this.setNome(nome);
 		this.setTelefone(telefone);
 		
+	}
+
+	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 

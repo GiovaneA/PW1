@@ -90,9 +90,12 @@ public class ClienteDAO {
 			stmt.setString(2, cpf);
 			ResultSet rs = stmt.executeQuery();
 			PessoaFisica pf = null;
-			pf = new PessoaFisica(rs.getString("nome"), rs.getString("endereco"), rs.getString("telefone") , rs.getString("cpf") );
-			pf.setNomeMae(rs.getString("nomeMae"));
-			pf.setNomePai(rs.getString("nomePai"));
+			if (rs.next()) {
+				pf = new PessoaFisica(rs.getString("nome"), rs.getString("endereco"), rs.getString("telefone") , rs.getString("cpf") );
+				pf.setNomeMae(rs.getString("nomeMae"));
+				pf.setNomePai(rs.getString("nomePai"));
+				pf.setId(rs.getInt("idClienteF"));
+			}
 			return pf;
 		}catch(Exception e) {
 			throw new RuntimeException (e);

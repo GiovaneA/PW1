@@ -53,6 +53,26 @@ public class Conta implements Produto {
 	public double getSaldo() {
 		return this.saldo;
 		}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public boolean isSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(boolean situacao) {
+		this.situacao = situacao;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
 	
 	
 	
