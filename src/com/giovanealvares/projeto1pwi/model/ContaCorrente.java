@@ -2,7 +2,7 @@ package com.giovanealvares.projeto1pwi.model;
 
 public class ContaCorrente extends Conta {	 
 	
-	public ContaCorrente(int numero) {
+	public ContaCorrente(String numero) {
 		super(numero);
 	}
 

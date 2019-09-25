@@ -20,7 +20,7 @@ CREATE TABLE PessoaJuridica (
   PRIMARY KEY (`idClienteJ`));
 
 CREATE TABLE TipoServico (
-  `idTipoServico` INT NOT NULL,
+  `idTipoServico` INT NOT NULL AUTO_INCREMENT,
   `nomeServico` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idTipoServico`));
 
@@ -29,9 +29,9 @@ INSERT INTO TipoServico (nomeServico) values ('Conta Poupanca');
 INSERT INTO TipoServico (nomeServico) values ('Seguro');
   
 CREATE TABLE ServicoF (
-  `idServico` INT NOT NULL,
+  `idServico` INT NOT NULL AUTO_INCREMENT,
   `idCliente` INT NOT NULL,
-  `numero` INT NOT NULL,
+  `numero` VARCHAR(45) NOT NULL,
   `saldo` DOUBLE NOT NULL,
   `situacao` TINYINT NOT NULL,
   `idTipoServico` INT NOT NULL,
@@ -50,9 +50,9 @@ CREATE TABLE ServicoF (
     ON UPDATE NO ACTION);
     
     CREATE TABLE ServicoJ (
-  `idServico` INT NOT NULL,
+  `idServico` INT NOT NULL AUTO_INCREMENT,
   `idCliente` INT NOT NULL,
-  `numero` INT NOT NULL,
+  `numero` VARCHAR(45) NOT NULL,
   `saldo` DOUBLE NOT NULL,
   `situacao` TINYINT NOT NULL,
   `idTipoServico` INT NOT NULL,

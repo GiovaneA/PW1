@@ -2,9 +2,11 @@ package com.giovanealvares.projeto1pwi.model;
 
 public class Conta implements Produto {
 	
-	private int numero;
+	private int id;
+	private String numero;
 	private double saldo;
 	private boolean situacao;
+	int tipo;
 
 	@Override
 	public double valorImposto() {	
@@ -12,11 +14,11 @@ public class Conta implements Produto {
 	}
 
 	@Override
-	public String getTipo() {
-		return "Conta";
+	public int getTipo() {
+		return tipo;
 	}
 	
-	public Conta(int numero) {
+	public Conta(String numero) {
 		this.numero = numero;
 	}
 	
@@ -54,16 +56,14 @@ public class Conta implements Produto {
 		return this.saldo;
 		}
 
-	public int getNumero() {
-		return numero;
-	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}
 
 	public boolean isSituacao() {
 		return situacao;
+	}
+	
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
 	}
 
 	public void setSituacao(boolean situacao) {
@@ -73,6 +73,23 @@ public class Conta implements Produto {
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
+
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	
 	
 	

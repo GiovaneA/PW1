@@ -2,7 +2,7 @@ package com.giovanealvares.projeto1pwi.model;
 
 public class ContaPoupanca extends Conta {
 
-	public ContaPoupanca(int numero) {
+	public ContaPoupanca(String numero) {
 		super(numero);
 	}
 	

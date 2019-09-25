@@ -16,12 +16,12 @@ public abstract class Cliente {
 		this.telefone = telefone;
 	}
 	
-	public void addCCorrente(int numero) {
+	public void addCCorrente(String numero) {
 		ContaCorrente contaCorrente = new ContaCorrente(numero);
 		this.produtos.add(contaCorrente);
 	}
 	
-	public void addCPoupanca(int numero) {
+	public void addCPoupanca(String numero) {
 		ContaPoupanca contaPoupanca = new ContaPoupanca(numero);
 		this.produtos.add(contaPoupanca);
 	}
