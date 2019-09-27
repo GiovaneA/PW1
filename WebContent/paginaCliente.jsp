@@ -56,6 +56,7 @@
 					case 2:
 						out.println("<option value='" + conta.getId() + "' >" + conta.getNumero()
 								+ " - Conta Corrente </option>");
+						break;
 					}
 				}
 			}

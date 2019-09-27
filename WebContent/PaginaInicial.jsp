@@ -19,5 +19,9 @@
 		<li> <a href="formlogarPessoaFisica.jsp">Logar como Pessoa Fisica</a>
 		<li> <a href="formlogarPessoaJuridica.jsp">Logar como Pessoa Juridica</a>
 	</ul>
+	<h5>Funcoes de adm.</h5>
+	<ul>
+		<li> <a href="formLogarAdm.jsp">Ver Relatorio</a>
+	</ul>
 	</body>
 </html>
