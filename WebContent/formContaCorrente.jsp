@@ -22,7 +22,7 @@
 		
 	<form action="sistema?logica=CriarContaCorrente" method="post">
 	<%} %>
-		Valor a ser depositado: <br> R$ <input type="number" name="valor">
+		Valor a ser depositado: <br> R$ <input type="number" name="valor" required>
 		<br>
 		<br> <input type=hidden name="idCliente" value="<%=id%>"><br>
 		<input type="submit" value="Ativar">

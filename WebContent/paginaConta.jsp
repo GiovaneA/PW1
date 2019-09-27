@@ -27,7 +27,7 @@
 	<h4>Depositar</h4>
 		<form action="sistema?logica=Depositar" method="post">
 		Valor a ser depositado: <br>
-		R$ <input type="number" name="valor" >
+		R$ <input type="number" name="valor" required>
 		<input type="hidden" name="id" value="<%=id%>" >
 		<br>
 		<br>
@@ -38,7 +38,7 @@
 		<h4>Sacar</h4>
 		<form action="sistema?logica=Sacar" method="post">
 		Valor a ser Sacado: <br>
-		R$ <input type="number" name="valor" >
+		R$ <input type="number" name="valor" required>
 		<input type="hidden" name="id" value="<%=id%>" >
 		<br>
 		<br>

@@ -17,7 +17,7 @@ String tipo = request.getParameter("tipo");%>
 	<form action="sistema?logica=CriarSeguro" method="post">
 	<%} %>
 		Valor da apolice: <br>
-		R$ <input type="number" name="valor" > <br><br>
+		R$ <input type="number" name="valor" required> <br><br>
 		 <input type=hidden name="idCliente" value="<%=id%>"><br>
 		 
 		<input type="submit" value="Solicitar">

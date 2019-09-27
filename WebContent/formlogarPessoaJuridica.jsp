@@ -10,9 +10,9 @@
 	<h3>Login Pessoa Juridica</h3>
 	<form action="sistema?logica=LogarPessoaJuridica" method="post">
 		Nome Fantasia: <br>
-		<input type="text" name="nomeFantasia" > <br><br>
+		<input type="text" name="nomeFantasia" required> <br><br>
 		CNPJ: <br>
-		<input type="text" name="cnpj"> <br><br>
+		<input type="text" name="cnpj" required> <br><br>
 		
 		<input type="submit" value="Logar">
 	</form>

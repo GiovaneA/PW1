@@ -10,9 +10,9 @@
 	<h3>Login de Administrador</h3>
 	<form action="sistema?logica=LogarAdm" method="post">
 		Id: <br>
-		<input type="text" name="id" > <br><br>
+		<input type="text" name="id" required > <br><br>
 		Senha: <br>
-		<input type="password" name="senha"> <br><br>
+		<input type="password" name="senha" required> <br><br>
 		<input type="submit" value="Logar">
 	</form>
 </body>
