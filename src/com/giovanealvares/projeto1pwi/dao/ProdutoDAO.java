@@ -251,5 +251,126 @@ public class ProdutoDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+		public Conta buscarContaJ(int id){
+		String sql = "SELECT * FROM servicoj WHERE idServico = ?";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Conta conta = new Conta(rs.getString("numero"));
+				conta.setId(rs.getInt("idServico"));
+				conta.setSaldo(rs.getDouble("saldo"));
+				conta.setSituacao(true);
+				conta.setTipo(rs.getInt("idTipoServico"));
+				stmt.close();
+				return conta;
+			}
+			stmt.close();
+			return null;
+	
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void criarSeguroJ(Seguro sj, int pj) {
+		String sql = "INSERT INTO servicoj (idCliente, numero, saldo, situacao, idTipoServico) VALUES (?,?,?,?,?)";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setInt(1,pf);
+			stmt.setString(2, s.getNumero());
+			stmt.setDouble(3, s.getValor());
+			stmt.setBoolean(4, s.isSituacao());
+			stmt.setInt(5, s.getTipo());
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+	
+	public void criarContaPoupancaJ(Conta cp, int pj) {
+		
+		String sql = "INSERT INTO servicoj (idCliente, numero, saldo, situacao, idTipoServico) VALUES (?,?,?,?,?)";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setInt(1,pf);
+			stmt.setString(2, cp.getNumero());
+			stmt.setDouble(3, cp.getSaldo());
+			stmt.setBoolean(4, cp.isSituacao());
+			stmt.setInt(5, cp.getTipo());
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+	
+	public void sacarJ(int conta, double valor) {
+		
+		String sql = "UPDATE servicoj SET saldo = ? WHERE idServico = ?";
+		Conta c = this.buscarContaJ(conta);
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setDouble(1,(c.getSaldo()-valor));
+			stmt.setInt(2, conta);
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+	
+	public void depositarJ(int conta, double valor) {
+		
+		String sql = "UPDATE servicoj SET saldo = ? WHERE idServico = ?";
+		Conta c = this.buscarContaJ(conta);
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setDouble(1,(c.getSaldo()+valor));
+			stmt.setInt(2, conta);
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+
+	public void ativarJ(int conta) {
+
+		String sql = "UPDATE servicoj SET situacao = ? WHERE idServico = ?";
+		Conta c = this.buscarContaJ(conta);
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setBoolean(1, true);
+			stmt.setInt(2, conta);
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+
+	public void desativarJ(int conta) {
+
+		String sql = "UPDATE servicoj SET situacao = ? WHERE idServico = ?";
+		Conta c = this.buscarContaJ(conta);
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setBoolean(1, false);
+			stmt.setInt(2, conta);
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
 	
