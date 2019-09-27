@@ -400,6 +400,7 @@ public class ProdutoDAO {
 		}
 	}
 	
+
 	public List<Conta> admContasF(){
 		String sql = "SELECT * FROM servicof sf WHERE sf.idTipoServico <> 3";
 		try {
@@ -478,6 +479,26 @@ public class ProdutoDAO {
 			}
 			stmt.close();
 			return lista;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+			
+	public boolean listarNumerosPJ(String random){
+		String sql = "SELECT numero FROM servicoj";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				if(random.equals(rs.getString("numero"))) {
+					stmt.close();
+					return true;
+				}
+					
+			}
+			stmt.close();
+			return false;
+
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
