@@ -16,7 +16,7 @@ public class LogarPessoaJuridica implements Logica {
 		String nomeFantasia = req.getParameter("nomeFantasia");
 		String cnpj = req.getParameter("cnpj");
 		ClienteDAO clienteDAO = new ClienteDAO();
-		PessoaJuridica pj = clienteDAO.logar(nomeFantasia, cnpj);
+		PessoaJuridica pj = clienteDAO.logarF(nomeFantasia, cnpj);
 		
 		req.setAttribute("clienteLogado", pj);
 		return "/paginaCliente.jsp";

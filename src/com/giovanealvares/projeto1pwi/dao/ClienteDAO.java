@@ -101,4 +101,23 @@ public class ClienteDAO {
 			throw new RuntimeException (e);
 				}
 	}
+	
+	public PessoaJuridica logarF(String nomeFantasia, String cnpj) {
+		String sql = "SELECT * FROM pessoajuridica pj WHERE pj.nomeFantasia = ? AND pj.cnpj = ?";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setString(1, nomeFantasia);
+			stmt.setString(2, cnpj);
+			ResultSet rs = stmt.executeQuery();
+			PessoaJuridica pj = null;
+			if (rs.next()) {
+				pj = new PessoaJuridica(rs.getString("nome"), rs.getString("endereco"), rs.getString("telefone") , rs.getString("cnpj"), rs.getString("nomefantasia") );
+
+				pj.setId(rs.getInt("idClienteJ"));
+			}
+			return pj;
+		}catch(Exception e) {
+			throw new RuntimeException (e);
+				}
+	}
 }

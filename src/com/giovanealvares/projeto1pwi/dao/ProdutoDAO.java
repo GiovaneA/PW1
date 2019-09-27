@@ -188,8 +188,51 @@ public class ProdutoDAO {
 		}
 	}
 	
+	public List<Conta> listarProdutosJ(int id){
+		String sql = "SELECT * FROM servicoj sf WHERE sf.idCliente = ?";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			ArrayList<Conta> lista = new ArrayList<Conta>();
+			while (rs.next()) {
+				Conta conta = new Conta(rs.getString("numero"));
+				conta.setSaldo(rs.getDouble("saldo"));
+				conta.setSituacao(rs.getBoolean("situacao"));
+				conta.setTipo(rs.getInt("idTipoServico"));
+				conta.setId(rs.getInt("idServico"));
+				lista.add(conta);
+			}
+			stmt.close();
+			return lista;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public List<Seguro> listarSeguros(int id){
 		String sql = "SELECT * FROM servicof sf WHERE sf.idCliente = ? and sf.idTipoServico = 3";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			ArrayList<Seguro> lista = new ArrayList<Seguro>();
+			while (rs.next()) {
+				Seguro s = new Seguro(rs.getString("numero"),rs.getDouble("saldo"));
+				s.setSituacao(rs.getBoolean("situacao"));
+				s.setTipo(rs.getInt("idTipoServico"));
+				s.setId(rs.getInt("idServico"));
+				lista.add(s);
+			}
+			stmt.close();
+			return lista;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public List<Seguro> listarSegurosJ(int id){
+		String sql = "SELECT * FROM servicoj sf WHERE sf.idCliente = ? and sf.idTipoServico = 3";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
 			stmt.setInt(1, id);

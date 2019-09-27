@@ -2,6 +2,7 @@ package com.giovanealvares.projeto1pwi.model;
 
 public class PessoaJuridica extends Cliente {
 	
+	private int id;
 	private String cnpj;
 	private String nomeFantasia;
 
@@ -12,6 +13,10 @@ public class PessoaJuridica extends Cliente {
 		this.setEndereco(endereco);
 		this.setNome(nome);
 		this.setTelefone(telefone);
+		
+	}
+	
+	public PessoaJuridica() {
 		
 	}
 
@@ -30,6 +35,17 @@ public class PessoaJuridica extends Cliente {
 	public void setNomeFantasia(String nomeFantasia) {
 		this.nomeFantasia = nomeFantasia;
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+
+	
 
 	
 }

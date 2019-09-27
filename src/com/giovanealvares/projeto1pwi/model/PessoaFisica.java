@@ -16,6 +16,9 @@ public class PessoaFisica extends Cliente {
 		this.setTelefone(telefone);
 		
 	}
+	
+	public PessoaFisica() {
+	}
 
 	
 	public int getId() {

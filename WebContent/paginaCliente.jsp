@@ -1,3 +1,5 @@
+<%@page import="com.giovanealvares.projeto1pwi.model.PessoaJuridica"%>
+<%@page import="com.giovanealvares.projeto1pwi.model.Cliente"%>
 <%@page import="com.giovanealvares.projeto1pwi.model.Seguro"%>
 <%@page import="com.giovanealvares.projeto1pwi.model.Conta"%>
 <%@page import="java.util.List"%>
@@ -15,8 +17,10 @@
 <body>
 	<h1>Pagina do Cliente</h1>
 	<%
-		PessoaFisica pf = (PessoaFisica) request.getAttribute("clienteLogado");
+		Cliente pf = (Cliente) request.getAttribute("clienteLogado");
 		String idCliente = Integer.toString(pf.getId());
+		PessoaFisica a = new PessoaFisica();
+		PessoaJuridica b = new PessoaJuridica();
 	%>
 	<h3>
 		Bem-vindo
@@ -27,10 +31,19 @@
 	<form action="sistema?logica=AcessarConta" method="post">
 		<select name="servicos">
 			<%
-			List<Conta> lista = new ProdutoDAO().listarProdutos(Integer.parseInt(idCliente));
-		
-	if (lista.isEmpty()){
-		%>
+				ProdutoDAO produtoDAO = new ProdutoDAO();
+				List<Conta> lista = null;
+				List<Seguro> listS = null;
+				if (pf.getClass().equals(a.getClass())) {
+					lista = produtoDAO.listarProdutos(Integer.parseInt(idCliente));
+					listS = produtoDAO.listarSeguros(Integer.parseInt(idCliente));
+				} else if (pf.getClass().equals(b.getClass())) {
+					lista = produtoDAO.listarProdutosJ(Integer.parseInt(idCliente));
+					listS = produtoDAO.listarSegurosJ(Integer.parseInt(idCliente));
+				}
+
+				if (lista.isEmpty()) {
+			%>
 			<option value='0'>Nenhum Servico</option>
 			<%
 			}else{
@@ -51,7 +64,7 @@
 		</select> <br> <br> <input type="submit" value="Acessar Conta">
 	</form>
 	<h4>Seus Seguros</h4>
-	<%List<Seguro> listS = new ProdutoDAO().listarSeguros(Integer.parseInt(idCliente)); 	
+	<% 	
 	if (listS.isEmpty()){
 		%>
 	<h5>---Nenhum Seguro Contratado---</h5>

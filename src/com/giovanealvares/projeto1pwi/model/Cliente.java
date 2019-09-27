@@ -4,6 +4,7 @@ import java.util.List;
 
 public abstract class Cliente {
 	
+	private int id;
 	private String nome;
 	private String endereco;
 	private String telefone;
@@ -14,6 +15,9 @@ public abstract class Cliente {
 		this.nome = nome;
 		this.endereco = endereco;
 		this.telefone = telefone;
+	}
+	
+	public Cliente() {
 	}
 	
 	public void addCCorrente(String numero) {
@@ -61,5 +65,14 @@ public abstract class Cliente {
 
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	} 
+	
 }
