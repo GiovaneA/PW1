@@ -10,7 +10,7 @@ import com.giovanealvares.projeto1pwi.dao.ProdutoDAO;
 import com.giovanealvares.projeto1pwi.model.ContaCorrente;
 import com.giovanealvares.projeto1pwi.model.Seguro;
 
-public class CriarSeguro implements Logica {
+public class CriarSeguroJ implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,7 +26,7 @@ public class CriarSeguro implements Logica {
 		Seguro s = new Seguro(random, (double) valor);
 		s.setSituacao(true);
 		s.setTipo(3);
-		produtoDAO.criarSeguroJ(sj, idCliente);
+		produtoDAO.criarSeguroJ(s, idCliente);
 		return "/PaginaInicial.jsp";
 	}
 
