@@ -10,7 +10,7 @@ import com.giovanealvares.projeto1pwi.dao.ProdutoDAO;
 import com.giovanealvares.projeto1pwi.model.ContaCorrente;
 import com.giovanealvares.projeto1pwi.model.ContaPoupanca;
 
-public class CriarContaCorrente implements Logica {
+public class CriarContaCorrenteJ implements Logica {
 
 	@Override
 	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -82,7 +82,44 @@ public class ClienteDAO {
 		}
 	}
 	
-	public PessoaFisica logar(String nomeMae, String cpf) {
+	public PessoaFisica buscarF(int id) {
+		String sql = "SELECT * FROM pessoafisica pf WHERE pf.idClienteF = ?";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setInt(1, id);;
+			ResultSet rs = stmt.executeQuery();
+			PessoaFisica pf = null;
+			if (rs.next()) {
+				pf = new PessoaFisica(rs.getString("nome"), rs.getString("endereco"), rs.getString("telefone") , rs.getString("cpf") );
+				pf.setNomeMae(rs.getString("nomeMae"));
+				pf.setNomePai(rs.getString("nomePai"));
+				pf.setId(rs.getInt("idClienteF"));
+			}
+			return pf;
+		}catch(Exception e) {
+			throw new RuntimeException (e);
+				}
+	}
+	
+	public PessoaJuridica buscarJ(int id) {
+		String sql = "SELECT * FROM pessoajuridica pj WHERE pj.idClienteJ = ?";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			PessoaJuridica pj = null;
+			if (rs.next()) {
+				pj = new PessoaJuridica(rs.getString("nome"), rs.getString("endereco"), rs.getString("telefone") , rs.getString("cnpj"), rs.getString("nomefantasia") );
+
+				pj.setId(rs.getInt("idClienteJ"));
+			}
+			return pj;
+		}catch(Exception e) {
+			throw new RuntimeException (e);
+				}
+	}
+	
+public PessoaFisica logar(String nomeMae, String cpf) {
 		String sql = "SELECT * FROM pessoafisica pf WHERE pf.nomeMae = ? AND pf.cpf = ?";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);

@@ -19,6 +19,7 @@ public class LogarPessoaFisica implements Logica {
 		PessoaFisica pf = clienteDAO.logar(nomeMae, cpf);
 		
 		req.setAttribute("clienteLogado", pf);
+		req.setAttribute("tipo", "f");
 		return "/paginaCliente.jsp";
 	}
 

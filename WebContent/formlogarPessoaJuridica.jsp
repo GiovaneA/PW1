@@ -13,6 +13,7 @@
 		<input type="text" name="nomeFantasia" > <br><br>
 		CNPJ: <br>
 		<input type="text" name="cnpj"> <br><br>
+		
 		<input type="submit" value="Logar">
 	</form>
 </body>

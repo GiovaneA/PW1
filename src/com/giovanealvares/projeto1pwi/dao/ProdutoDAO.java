@@ -24,6 +24,32 @@ public class ProdutoDAO {
 		this.conexao = new Conexao().getConexao();
 	}
 	
+	public void desativarSeguroF(int id) {
+		String sql = "UPDATE servicof SET situacao = ? WHERE idServico = ?";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setBoolean(1, false);
+			stmt.setInt(2, id);
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void desativarSeguroJ(int id) {
+		String sql = "UPDATE servicoj SET situacao = ? WHERE idServico = ?";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setBoolean(1, false);
+			stmt.setInt(2, id);
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public void deletarServicoF(int id) {
 		String sql = "DELETE FROM servicof WHERE idServico = ?";
 		try {

@@ -18,6 +18,9 @@
 	<h1>Pagina do Cliente</h1>
 	<%
 		Cliente pf = (Cliente) request.getAttribute("clienteLogado");
+		request.setAttribute("cliente", pf);
+		String t = request.getAttribute("tipo").toString();
+		
 		String idCliente = Integer.toString(pf.getId());
 		PessoaFisica a = new PessoaFisica();
 		PessoaJuridica b = new PessoaJuridica();
@@ -51,11 +54,11 @@
 					switch (conta.getTipo()) {
 					case 1:
 						out.println("<option value='" + conta.getId() + "' >" + conta.getNumero()
-								+ " - Conta Poupanca </option>");
+								+ " - Conta Corrente </option>");
 						break;
 					case 2:
 						out.println("<option value='" + conta.getId() + "' >" + conta.getNumero()
-								+ " - Conta Corrente </option>");
+								+ " - Conta Poupanca </option>");
 						break;
 					}
 				}
@@ -93,6 +96,9 @@
 					}
 		%>
 		</h5>
+		<input type="hidden" name="idSeguro" value="<%=seguro.getId()%>">
+		<input type="hidden" name="id" value="<%=idCliente%>">
+		<input type="hidden" name="tipo" value="<%=t%>">
 		<input type="submit" value="Cancelar Seguro">
 		<br>---------------------------------
 	</form>
@@ -106,19 +112,22 @@
 
 	<form action="formContaPoupanca.jsp">
 		<input type="hidden" name="id" value="<%=idCliente%>">
+		<input type="hidden" name="tipo" value="<%=t%>">
 		<button type="submit" value="Enviar">Criar Conta Poupanca</button>
 
 	</form>
 	<br>
 	<form action="formContaCorrente.jsp">
 		<input type="hidden" name="id" value="<%=idCliente%>">
+		<input type="hidden" name="tipo" value="<%=t%>">
 		<button type="submit" value="Enviar">Criar Conta Corrente</button>
 		<br>
 	</form>
 	<br>
 	<form action="formSeguro.jsp">
-		<input type="hidden" name="id" value="<%=idCliente%>"> <input
-			type="submit" value="Solicitar Seguro"></input> <br>
+		<input type="hidden" name="id" value="<%=idCliente%>"> 
+		<input type="hidden" name="tipo" value="<%=t%>">
+		<input type="submit" value="Solicitar Seguro"></input> <br>
 	</form>
 
 
