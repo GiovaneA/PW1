@@ -38,7 +38,7 @@ public class ProdutoDAO {
 	}
 	
 	public void deletarServicoJ(int id) {
-		String sql = "DELETE FROM servicoj WHERE idServico = ?";
+		String sql = "DELETE FROM ServicoJ WHERE idServico = ?";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
 			stmt.setInt(1,id);
@@ -215,7 +215,7 @@ public class ProdutoDAO {
 	}
 	
 	public List<Conta> listarProdutosJ(int id){
-		String sql = "SELECT * FROM servicoj sf WHERE sf.idCliente = ?";
+		String sql = "SELECT * FROM ServicoJ sf WHERE sf.idCliente = ?";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
 			stmt.setInt(1, id);
@@ -258,7 +258,7 @@ public class ProdutoDAO {
 	}
 	
 	public List<Seguro> listarSegurosJ(int id){
-		String sql = "SELECT * FROM servicoj sf WHERE sf.idCliente = ? and sf.idTipoServico = 3";
+		String sql = "SELECT * FROM ServicoJ sf WHERE sf.idCliente = ? and sf.idTipoServico = 3";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
 			stmt.setInt(1, id);
@@ -279,7 +279,7 @@ public class ProdutoDAO {
 	}
 	
 		public Conta buscarContaJ(int id){
-		String sql = "SELECT * FROM servicoj WHERE idServico = ?";
+		String sql = "SELECT * FROM ServicoJ WHERE idServico = ?";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
 			stmt.setInt(1, id);
@@ -302,7 +302,7 @@ public class ProdutoDAO {
 	}
 	
 	public void criarSeguroJ(Seguro sj, int pj) {
-		String sql = "INSERT INTO servicoj (idCliente, numero, saldo, situacao, idTipoServico) VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO ServicoJ (idCliente, numero, saldo, situacao, idTipoServico) VALUES (?,?,?,?,?)";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
 			stmt.setInt(1,pj);
@@ -320,7 +320,7 @@ public class ProdutoDAO {
 	
 	public void criarContaPoupancaJ(Conta cp, int pj) {
 		
-		String sql = "INSERT INTO servicoj (idCliente, numero, saldo, situacao, idTipoServico) VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO ServicoJ (idCliente, numero, saldo, situacao, idTipoServico) VALUES (?,?,?,?,?)";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
 			stmt.setInt(1,pj);
@@ -338,7 +338,7 @@ public class ProdutoDAO {
 	
 	public void sacarJ(int conta, double valor) {
 		
-		String sql = "UPDATE servicoj SET saldo = ? WHERE idServico = ?";
+		String sql = "UPDATE ServicoJ SET saldo = ? WHERE idServico = ?";
 		Conta c = this.buscarContaJ(conta);
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
@@ -354,7 +354,7 @@ public class ProdutoDAO {
 	
 	public void depositarJ(int conta, double valor) {
 		
-		String sql = "UPDATE servicoj SET saldo = ? WHERE idServico = ?";
+		String sql = "UPDATE ServicoJ SET saldo = ? WHERE idServico = ?";
 		Conta c = this.buscarContaJ(conta);
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
@@ -370,7 +370,7 @@ public class ProdutoDAO {
 
 	public void ativarJ(int conta) {
 
-		String sql = "UPDATE servicoj SET situacao = ? WHERE idServico = ?";
+		String sql = "UPDATE ServicoJ SET situacao = ? WHERE idServico = ?";
 		Conta c = this.buscarContaJ(conta);
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
@@ -387,7 +387,7 @@ public class ProdutoDAO {
 	public void desativarJ(int conta) {
 
 
-		String sql = "UPDATE servicoj SET situacao = ? WHERE idServico = ?";
+		String sql = "UPDATE ServicoJ SET situacao = ? WHERE idServico = ?";
 		Conta c = this.buscarContaJ(conta);
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
@@ -423,7 +423,7 @@ public class ProdutoDAO {
 	}
 	
 	public List<Conta> admContasJ(){
-		String sql = "SELECT * FROM servicoj sf WHERE sf.idTipoServico <> 3";
+		String sql = "SELECT * FROM ServicoJ sf WHERE sf.idTipoServico <> 3";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
@@ -444,7 +444,7 @@ public class ProdutoDAO {
 	}
 
 	public List<Seguro> admSegurosJ(){
-		String sql = "SELECT * FROM servicoj sf WHERE sf.idTipoServico = 3";
+		String sql = "SELECT * FROM ServicoJ sf WHERE sf.idTipoServico = 3";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
@@ -485,7 +485,7 @@ public class ProdutoDAO {
 	}
 			
 	public boolean listarNumerosPJ(String random){
-		String sql = "SELECT numero FROM servicoj";
+		String sql = "SELECT numero FROM ServicoJ";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
