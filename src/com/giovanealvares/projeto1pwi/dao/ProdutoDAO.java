@@ -11,7 +11,8 @@ import com.giovanealvares.projeto1pwi.model.Cliente;
 import com.giovanealvares.projeto1pwi.model.Conta;
 import com.giovanealvares.projeto1pwi.model.ContaPoupanca;
 import com.giovanealvares.projeto1pwi.model.PessoaFisica;
-import com.giovanealvares.projeto1pwi.model.Produto;;
+import com.giovanealvares.projeto1pwi.model.Produto;
+import com.giovanealvares.projeto1pwi.model.Seguro;;
 
 public class ProdutoDAO {
 	
@@ -66,7 +67,25 @@ public class ProdutoDAO {
 		}
 	}
 	
-	public void criarContaPoupancaF(ContaPoupanca cp, int pf) {
+	public void criarSeguro(Seguro s, int pf) {
+		
+		String sql = "INSERT INTO servicof (idCliente, numero, saldo, situacao, idTipoServico) VALUES (?,?,?,?,?)";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setInt(1,pf);
+			stmt.setString(2, s.getNumero());
+			stmt.setDouble(3, s.getValor());
+			stmt.setBoolean(4, s.isSituacao());
+			stmt.setInt(5, s.getTipo());
+			stmt.execute();
+			stmt.close();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+	
+	public void criarContaPoupancaF(Conta cp, int pf) {
 		
 		String sql = "INSERT INTO servicof (idCliente, numero, saldo, situacao, idTipoServico) VALUES (?,?,?,?,?)";
 		try {
@@ -161,6 +180,27 @@ public class ProdutoDAO {
 				conta.setTipo(rs.getInt("idTipoServico"));
 				conta.setId(rs.getInt("idServico"));
 				lista.add(conta);
+			}
+			stmt.close();
+			return lista;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public List<Seguro> listarSeguros(int id){
+		String sql = "SELECT * FROM servicof sf WHERE sf.idCliente = ? and sf.idTipoServico = 3";
+		try {
+			stmt = (PreparedStatement) conexao.prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			ArrayList<Seguro> lista = new ArrayList<Seguro>();
+			while (rs.next()) {
+				Seguro s = new Seguro(rs.getString("numero"),rs.getDouble("saldo"));
+				s.setSituacao(rs.getBoolean("situacao"));
+				s.setTipo(rs.getInt("idTipoServico"));
+				s.setId(rs.getInt("idServico"));
+				lista.add(s);
 			}
 			stmt.close();
 			return lista;

@@ -1,11 +1,14 @@
 package com.giovanealvares.projeto1pwi.model;
 
 public class Seguro implements Produto {
-
-	private int numero;
+	
+	private int id;
+	private String numero;
 	private double valor;
 	private boolean situacao;
 	int tipo;
+	
+	
 	
 	@Override
 	public double valorImposto() {
@@ -18,16 +21,16 @@ public class Seguro implements Produto {
 		return 3;
 	}
 
-	public Seguro(int numero, double valor) {
+	public Seguro(String numero, double valor) {
 		this.numero = numero;
 		this.valor = valor;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
@@ -50,6 +53,15 @@ public class Seguro implements Produto {
 	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	
 	
 

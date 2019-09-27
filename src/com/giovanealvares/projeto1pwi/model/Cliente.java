@@ -26,7 +26,7 @@ public abstract class Cliente {
 		this.produtos.add(contaPoupanca);
 	}
 	
-	public void addSeguro(int numero, double valor) {
+	public void addSeguro(String numero, double valor) {
 		Seguro seguro = new Seguro(numero, valor);
 		this.produtos.add(seguro);
 	}

@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.giovanealvares.projeto1pwi.model.Conta"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -21,6 +22,7 @@
 		}%>
 	
 	<h2>Conta <%=tipo%> de numero <%=conta.getNumero()%></h2>
+	<h2>Saldo: R$ <%=conta.getSaldo()%></h2>
 	<h3>Selecione a operacao que deseja realizar</h3>
 	<h4>Depositar</h4>
 		<form action="sistema?logica=Depositar" method="post">
