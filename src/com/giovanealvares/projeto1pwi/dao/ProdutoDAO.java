@@ -279,11 +279,11 @@ public class ProdutoDAO {
 		String sql = "INSERT INTO servicoj (idCliente, numero, saldo, situacao, idTipoServico) VALUES (?,?,?,?,?)";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
-			stmt.setInt(1,pf);
-			stmt.setString(2, s.getNumero());
-			stmt.setDouble(3, s.getValor());
-			stmt.setBoolean(4, s.isSituacao());
-			stmt.setInt(5, s.getTipo());
+			stmt.setInt(1,pj);
+			stmt.setString(2, sj.getNumero());
+			stmt.setDouble(3, sj.getValor());
+			stmt.setBoolean(4, sj.isSituacao());
+			stmt.setInt(5, sj.getTipo());
 			stmt.execute();
 			stmt.close();
 		} catch (Exception e) {
@@ -297,7 +297,7 @@ public class ProdutoDAO {
 		String sql = "INSERT INTO servicoj (idCliente, numero, saldo, situacao, idTipoServico) VALUES (?,?,?,?,?)";
 		try {
 			stmt = (PreparedStatement) conexao.prepareStatement(sql);
-			stmt.setInt(1,pf);
+			stmt.setInt(1,pj);
 			stmt.setString(2, cp.getNumero());
 			stmt.setDouble(3, cp.getSaldo());
 			stmt.setBoolean(4, cp.isSituacao());
